@@ -1,0 +1,111 @@
+การทดสอบหรือการเรียนรู้ทั้งหมดในโค้ดนี้มาจากในห้องเรียนและเป็นสิ่งที่ผมอยากรู้ ซึ่งผมโจทย์และบททดสอบเป็นการสงสัยอยากลองของตัวเอง และ แหล่งที่มาสามารถหาได้ใน w3school หรือ mdn
+
+พื้นฐานของ Array
+สร้าง arr1 ที่เก็บข้อมูลหลายประเภท เช่น string, boolean, number, null
+let arr1 = ["string", true, 63, 1, 2, false, null, 3, 4, 5, "Chop", "string", null];
+
+
+แสดงจำนวนสมาชิกทั้งหมด หรือ มีกี่ตำแหน่งทั้งหมด ใน arr1
+console.log("Length of Array1 is " + arr1.length);
+
+แสดงค่าทั้งหมดใน arr1
+console.log("Array 1 is " + arr1);
+
+หาตำแหน่งสุดท้ายของค่า 63 ใน array
+console.log("Last Array of 63 : " + arr1.lastIndexOf(63));
+หาตำแหน่งแรกของค่า "string" ใน array
+console.log("Index Array of string : " + arr1.indexOf("string"));
+หาตำแหน่งสุดท้ายของค่า "string" ใน array
+console.log("Last Index Array of string : " + arr1.lastIndexOf("string"));
+indexOf หา index แรกที่เจอ "string"
+lastIndexOf หา index สุดท้ายที่เจอ "string"
+
+ใช้ .at(index) เพื่อเข้าถึงสมาชิกตำแหน่งที่ 0
+console.log(arr1.at(0));
+
+Loop ผ่าน Array
+วน loop ดูค่าทุกตำแหน่งของ arr1 ด้วย .at(i)
+for (let i = 0; arr1.length >= i; i++){
+    console.log("Last index of "+ i + " " + arr1.at(i));
+}
+ผลัพท์แสดงค่าทั้งหมดในสตริงที่ละตัว และ ตำแหน่งที่เท่าไหร่
+
+ลบและแทนที่ข้อมูลใน Array
+delete arr1[2];
+ลบสมาชิกตำแหน่งที่ 2 (63) โดยใช้ delete (ช่องจะว่างแต่ความยาวเท่าเดิม)
+console.log(arr1); แสดง Array ออกมาพบว่าตำแหน่งที่สองว่างป่าว
+console.log(arr1.length); เช็คว่ามีสมาชิก หรือ ตำแหน่งเท่าไหร่สรุปเท่าเดิม คือ 13
+
+ลบ 2 สมาชิกจาก index 2 แล้วแทนที่ด้วย '63' และ '65'
+arr1.splice(2, 2, '63', '65');
+console.log(arr1);
+ผลลัพธ์ ['string', true,'63','65',2,false,null,3,4,5,'Chop','string',null]
+
+Array ซ้อน Array
+let arr3 = [[1,2,3,4],["red","blue","green","white"]];
+console.log(arr3[1]);ผลลัพธ์ คือ ["red","blue","green","white"] เพราะ เราเรียกหาArray ตำแหน่งที่ 1
+console.log(Array.isArray(arr3)); เช็คว่า arr3 เป็น array หรือไม่ด้วย Array.isArray()
+arr3 คือ array ที่มี array ซ้อนอยู่
+
+Array ที่มี Object อยู่ข้างใน
+const colors = [{id:1, name:'red', tone:'hot'}, {...}, {...}];
+console.log(colors);
+array ที่ภายในมี object หลายตัว
+
+const contacts=[{email:['abc@gmail.com','foo@kmutt.ac.th']};
+console.log(contacts);
+console.log(contacts[0].email[0]);
+ดึง email แรกจาก contacts[0] (abc@gmail.com)
+
+ใช้ .map() กับ Array ซ้อนกัน
+const groups = [['Malee', 'Jane'], ['John', 'Jay', 'Pete']];
+const lastMem = groups.map(group => group[group.length - 1]);
+console.log(lastMem);
+ใช้ .map() เพื่อดึงค่าทั้งหมดใน groups และ ใส่ condition ที่ทำให้ค่าแสดงค่าสุดท้ายชื่อสุดท้ายในแต่ละกลุ่ม
+
+Spread Operator
+let c = [5, 10, 15];
+let b = [0, ...c, 20];
+console.log(b); // [0,5,10,15,20]
+ใช้ ... กระจายสมาชิกของ c ไปอยู่ใน b โดยใช้ spread
+
+const greeting = ["Hello world"];
+const greetingCH = [...greeting];
+const cloneGreeting = ['checked', ...greetingCH, 'done'];
+console.log(cloneGreeting);
+แสดงการ copy และเพิ่มสมาชิกเข้าไปโดยใช้ spread
+
+สร้าง Array ด้วย Constructor
+let arr4 = new Array();           // ว่าง
+let arr5 = new Array(10);         // ความยาว 10 (ค่าว่าง)
+let arr6 = new Array(10, 20, 30); // มีค่าเลย
+
+console.log(arr4, arr4.length);
+console.log(arr5, arr5.length);
+console.log(arr6, arr6.length);
+Array.of() และ Array.from()
+let arr7 = Array.of(10, 20, 30, 40); // สร้าง array จากค่าหลายๆค่า
+let arr2 = Array.from(arr7);        // สร้าง array จาก array อื่น
+
+console.log(arr7, arr2);
+แปลง string เป็น array ด้วย spread
+let letters = [...'Hello world'];
+console.log(letters);
+แยกตัวอักษรใน string ออกเป็น array ทีละตัว
+
+สรุป:
+โค้ดนของผมกำลังทดสอบและเรียนรู้การทำงานของ Array ใน JavaScript:
+
+-การเข้าถึงสมาชิก
+
+-การใช้ loop
+
+-การใช้ method ต่างๆ (indexOf, lastIndexOf, splice, map)
+
+-การจัดการกับ array ซ้อนกัน
+
+-การใช้งาน spread operator
+
+-การสร้าง array แบบ constructor
+
+-การแปลง string เป็น array
