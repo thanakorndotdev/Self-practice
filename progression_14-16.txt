@@ -1,0 +1,67 @@
+Weekly Learning & Practice Summary (14-16 Aug 2025)
+
+หัวข้อหลักที่ได้เรียนรู้และฝึกฝนเกี่ยวกับ JavaScript Objects, Loops,
+Classes, Equality, Dates
+
+1.  Object Basics
+
+-   ฝึกการสร้าง object หลายวิธี: object literal, constructor function,
+    class, และ Object.create()
+-   เข้าใจว่า property สามารถมีได้ทั้ง primitive, object, array, และ
+    function
+-   ทราบว่า key ที่ซ้ำกันใน object จะถูก overwrite ด้วยค่าล่าสุด
+
+2.  Object Methods: keys / values / entries
+
+-   Object.keys(obj): คืน array ของ keys
+-   Object.values(obj): คืน array ของ values
+-   Object.entries(obj): คืน array ของคู่ [key, value]
+-   หากต้องการ non-enumerable properties ใช้
+    Object.getOwnPropertyNames()
+
+3.  Loops
+
+-   for…in: วน key ของ object รวม inherited properties → ควรใช้
+    hasOwnProperty
+-   for…of: วนค่าของ iterable เช่น array, string, Map, Set
+-   Object.keys().forEach(): modern style, อ่านง่าย กระชับ
+-   แนวทางเลือกใช้: Object ใช้ for…in (with hasOwnProperty), Array ใช้
+    for…of, modern ใช้ Object.keys().forEach()
+
+4.  Equality
+
+-   Object เทียบกันด้วย reference เท่านั้น (==, ===)
+-   ฟังก์ชัน shallowEqual: เทียบ key/value ชั้นเดียว
+-   ใช้ Object.is เพื่อจัดการกรณี NaN และ +0/-0
+-   compareBookByISBN: ฝึกเทียบ object โดยดูแค่ field เฉพาะ
+
+5.  Dates
+
+-   new Date(year, monthIndex, day) → monthIndex เริ่มที่ 0
+-   new Date(2025, 1, 1) = 1 ก.พ. 2025
+-   ฝึกเขียนฟังก์ชัน formatYMD(date) คืนค่า YYYY-MM-DD
+
+6.  Classes & Prototype
+
+-   ฝึกเขียน class พร้อม method, getter/setter
+-   ใช้ prototype เพิ่ม method ให้ constructor function
+-   ใช้ Object.create(proto) สร้าง object ใหม่ที่เชื่อมกับ prototype
+
+7.  Self-Practice Highlights
+
+-   แก้บั๊ก: duplicate key, ใช้ตัวแปรก่อนประกาศ (TDZ)
+-   Refactor: ใช้ Object.entries แทน for…in เพื่อความชัดเจน
+-   Utility Functions:
+    -   pick(obj, keys): คืน object ใหม่เฉพาะ keys ที่เลือก
+    -   omit(obj, keys): คืน object โดยตัด keys ที่ไม่ต้องการ
+
+Key Takeaways - เข้าใจการทำงานของ object และ class ใน JavaScript -
+ใช้งาน Object.keys/values/entries เพื่อจัดการข้อมูล -
+รู้จักข้อแตกต่างของ for…in, for…of, และ modern forEach - เทียบ object
+ได้อย่างถูกต้อง (==, ===, Object.is) - จัดการวันที่และ prototype ได้ -
+สามารถสร้าง utility function ช่วยงานจริงได้ เช่น pick, omit,
+shallowEqual
+
+สรุป: สัปดาห์นี้ได้เรียนรู้ครบทั้งพื้นฐานและการประยุกต์ใช้ object, loop,
+class, equality, และ date ซึ่งเป็นหัวใจสำคัญในการทำงานกับ JavaScript
+อย่างมั่นใจและถูกต้อง
