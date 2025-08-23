@@ -1,0 +1,95 @@
+    19_aug_25.js
+
+    1. การประกาศฟังก์ชัน (Function Declaration)
+
+    เริ่มจาก function multiply(a, b) → ฟังก์ชันแบบมาตรฐาน
+
+    เข้าใจว่า ฟังก์ชันเป็น reusable code block ที่สามารถเรียกใช้หลายครั้งได้
+
+    2. การใช้ Function Expression
+
+    ทดลองทั้งแบบ
+
+    Arrow Function: const multiply2 = (a, b) => a * b
+
+    Function Expression ปกติ: const multiply3 = function(a, b){...}
+
+    เรียนรู้ว่า ฟังก์ชันก็เป็นค่า (value) ที่เก็บในตัวแปรได้เหมือน object อื่น ๆ
+
+    3. การตรวจสอบชนิด (typeof)
+
+    ใช้ typeof multiply / typeof multiply2 → เข้าใจว่า ฟังก์ชันคือ object ชนิด function
+
+    4. การ Assign ฟังก์ชันให้ตัวแปรใหม่
+
+    เช่น const x = multiply;
+
+    ทำให้เห็นว่า ฟังก์ชันคือ first-class citizen → สามารถเก็บ, ส่งต่อ, return ได้
+
+    5. Higher-Order Function
+
+    doSomething() ที่ return ฟังก์ชัน sayGoodBye
+
+    เข้าใจว่า ฟังก์ชันสามารถ return ฟังก์ชันอื่นได้
+
+    6. การเปลี่ยนแปลงค่าใน Object โดยผ่านฟังก์ชัน
+
+    myFunc(product) → เปลี่ยน property model ของ object
+
+    เข้าใจว่า object ถูกส่งแบบ reference
+
+    7. Parameter และค่าไม่เปลี่ยน (Primitive vs Reference)
+
+    square(theSide) → เปลี่ยนค่าภายในฟังก์ชัน แต่ตัวแปร theSide ไม่เปลี่ยน
+
+    เรียนรู้ว่า primitive (number, string, boolean) ถูกส่งแบบ pass by value
+
+    8. Arguments Object
+
+    sum(x,y){ for(argu of arguments){...}}
+
+    ใช้ arguments → เข้าใจว่า สามารถรับจำนวนพารามิเตอร์ไม่จำกัด ได้
+
+    9. Default Parameters
+
+    greeting(greet = "Hello", whom = "Guest", quote = "How are you?")
+
+    ทำให้รู้ว่า สามารถกำหนดค่า default ให้ parameter ได้
+
+    10. Undefined Parameters
+
+    sum2(10,20) → ได้ NaN เพราะ num3 ไม่ถูกส่งค่าเข้ามา
+
+    เข้าใจว่า ถ้า argument ไม่ส่งมา → จะเป็น undefined
+
+    11. Destructuring Parameters
+
+    arrayAdd2([x1,y1],[x2,y2]) → ใช้ array destructuring
+
+    เข้าใจว่า พารามิเตอร์สามารถแตกออกจาก array/object ได้
+
+    12. Objects และ Nested Objects
+
+    students.fullName.firstName
+
+    เรียนรู้เรื่อง nested object และการเข้าถึงข้อมูลภายใน
+
+    13. Function ที่รับ Object แล้ว Return
+
+    getFirstName(students) → ตอนนี้ยังส่ง object ทั้งก้อน
+
+    เข้าใจว่า function สามารถรับ object ทั้งตัวได้ (อาจพัฒนาไปสู่การเลือกเฉพาะ property)
+
+    14. String Processing และ Word Frequency
+
+    getFreqofWords(sentence) →
+
+    ใช้ .toLowerCase()
+
+    ใช้ .split(' ')
+
+    ใช้ object เก็บ frequency
+
+    Array สามารถใช้ key บอก ผ่าน loop ด้วยวิธีนี้ word[i]
+
+    เข้าใจเรื่อง string manipulation + array loop + object as map

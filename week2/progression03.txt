@@ -1,0 +1,100 @@
+16_aug_2025.js
+
+-   Object.keys() เป็น static method ของ Object ที่คืนค่าเป็น array
+    ของชื่อ properties (keys) ที่เป็นของ object เองจริงๆ (own
+    properties) และเป็นชนิด string เท่านั้น
+
+-   จะไม่รวม properties ที่สืบทอดมาจาก prototype chain
+    (ต่างจาก for...in ที่จะรวม inherited properties ด้วย)
+
+-   ลำดับของ keys ที่ได้จะตรงกับการวนลูปด้วย for...in (แต่เฉพาะ
+    properties ที่เป็น own และ enumerable)
+
+-   หากต้องการ ค่าของ properties ให้ใช้ Object.values()
+    หากต้องการทั้ง key และ value ใช้ Object.entries()
+
+
+ตัวอย่างการใช้งาน
+
+    const object = { a: "some string", b: 42, c: false };
+    console.log(Object.keys(object)); // ["a", "b", "c"]
+
+สามารถใช้กับ array และ object ที่มีลักษณะเป็น array-like ได้ เช่น:
+
+    const arr = ["a","b","c"];
+    console.log(Object.keys(arr)); // ["0","1","2"]
+
+    const obj = { 100: "a", 2: "b", 7: "c" };
+    console.log(Object.keys(obj)); // ["2","7","100"]
+
+ถ้าต้องการรวม property ที่เป็น non-enumerable ให้ใช้
+Object.getOwnPropertyNames()
+
+หาก argument ไม่ใช่ Object (เช่น string หรือ primitive อื่น)
+JavaScript จะพยายามแปลงเป็น Object โดยอัตโนมัติ — แต่ใช้กับ null หรือ
+undefined ไม่ได้ (จะเกิด TypeError)
+
+
+เปรียบเทียบกับ methods อื่น
+
+  Method                            คืนค่าเป็น              รวม          รวม
+                                                            inherited?   non-enumerable?
+  Object.keys(obj)                  ชื่อ properties         ❌           ❌
+                                    (strings)                            
+
+  Object.values(obj)                ค่า (values)            ❌           ❌
+
+  Object.entries(obj)               [key, value] arrays     ❌           ❌
+
+  Object.getOwnPropertyNames(obj)   ชื่อ properties         ❌           ✅
+                                    (enumerable +                        
+                                    non-enumerable)                      
+
+ไอเดียการใช้งาน Object.keys()
+
+-   ใช้ในการวนลูป properties ได้สะดวก:
+
+        Object.keys(person).forEach(key => {
+          console.log(key, person[key]);
+        });
+
+-   ใช้จับคู่กับ .map() เพื่อแปลงหรือจัดโครงสร้างข้อมูลใหม่
+
+-   ใช้ตรวจสอบ property ที่มีอยู่ใน object เพื่อ validation หรือ logging
+
+
+การเลือกใช้ Loop ที่เหมาะสม
+
+-   Object → ใช้ for...in (พร้อมเช็ก hasOwnProperty)
+
+        for (const key in obj) {
+          if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            console.log(key, obj[key]);
+          }
+        }
+
+-   Array / Iterable → ใช้ for...of
+
+        for (const value of arr) {
+          console.log(value);
+        }
+
+-   Modern style → ใช้ Object.keys().forEach() หรือ .map()
+    เพื่อความกระชับและอ่านง่าย
+
+(Sources)
+
+-   MDN JavaScript (Object.keys):
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+-   Stack Overflow:
+
+    -   Difference between object.key and object[key] in for loop:
+        https://stackoverflow.com/questions/62481352/difference-between-object-key-and-objectkey-in-for-loop-in-javascript
+    -   How do I loop through or enumerate a JavaScript object?
+        https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object
+    -   for-in vs Object.keys forEach without inherited properties
+        https://stackoverflow.com/questions/25052758/for-in-vs-object-keys-foreach-without-inherited-properties
+    -   Looping through an object and changing all values
+        https://stackoverflow.com/questions/36467369/looping-through-an-object-and-changing-all-values/36467386
+

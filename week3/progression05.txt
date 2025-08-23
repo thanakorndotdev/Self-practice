@@ -1,0 +1,63 @@
+21_aug_25.js
+
+1. เริ่มจาก Class พื้นฐาน
+
+class Machine มี property (os, disk) และเมธอด (getOS(), getDiskSize())
+
+จุดเรียนรู้: เข้าใจ OOP พื้นฐาน → การสร้างคลาส, constructor, และเมธอด
+
+2. สร้าง คลาสลูก (Subclass)
+
+class Computer extends Machine → สืบทอดจาก Machine
+
+เพิ่ม property ใหม่ (brand, vms=[])
+
+จุดเรียนรู้: เข้าใจ การสืบทอด (Inheritance) และ super()
+
+3. การทำงานกับ Collection (Array)
+
+เก็บ VM หลายตัวใน this.vms
+
+เขียนเมธอดจัดการ เช่น:
+
+getTotalVMDiskSize() → รวมขนาดดิสก์ทั้งหมดของ VM
+
+getVM(i), getVMNumbers()
+
+removeVM(i)
+
+จุดเรียนรู้: การใช้ Array ร่วมกับ OOP
+
+4. การสร้าง Object ซ้อนกัน (Composition)
+
+class VM extends Machine → VM เป็น machine ย่อย
+
+ต้องมี host ที่เป็น Computer
+
+จุดเรียนรู้: เข้าใจ Composition (วัตถุซ้อนในวัตถุ)
+
+5. การใส่ Validation / Error Handling
+
+เช็คว่า host ต้องเป็น Computer
+
+เช็คว่า disk รวมกันต้องไม่เกิน host
+
+ใช้ throw new Error(...)
+
+จุดเรียนรู้: Validation + Exception Handling
+
+6. การใช้ Encapsulation
+
+จัดการ VM ผ่านเมธอดของ Computer (addVM, removeVM)
+
+ไม่แก้ไข vms ตรง ๆ
+
+จุดเรียนรู้: เข้าใจ Encapsulation (ห่อหุ้มการเข้าถึงข้อมูล)
+
+7. การเขียน Test Case
+
+Test แต่ละ class แยกชัดเจน (Machine → Computer → VM)
+
+ครอบ try–catch เพื่อทดสอบ error เช่น disk overflow, invalid host
+
+จุดเรียนรู้: Unit Testing + Debugging

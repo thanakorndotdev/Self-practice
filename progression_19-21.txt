@@ -1,0 +1,133 @@
+Weekly Learning & Practice Summary (19-21 Aug 2025)
+
+Function Declaration
+
+function multiply(a, b) { return a * b }
+
+ฟังก์ชันคือ reusable code block
+
+Function Expression
+
+Arrow function: const multiply2 = (a, b) => a * b
+
+ปกติ: const multiply3 = function(a, b) {...}
+
+ฟังก์ชันคือ value เก็บในตัวแปรได้
+
+typeof ตรวจสอบชนิด
+
+typeof multiply → "function"
+
+ฟังก์ชันคือ object ชนิด function
+
+Assign ฟังก์ชันให้ตัวแปรใหม่
+
+const x = multiply;
+
+ฟังก์ชันเป็น first-class citizen
+
+Higher-Order Function
+
+doSomething() return sayGoodBye
+
+ฟังก์ชัน return ฟังก์ชันได้
+
+Object Reference
+
+myFunc(product) → เปลี่ยน property ของ object
+
+Object ส่งแบบ reference
+
+Primitive vs Reference
+
+square(theSide) → ตัวเลขไม่เปลี่ยน
+
+Primitive ส่งแบบ pass by value
+
+Arguments Object
+
+sum(x,y){ for(argu of arguments){...}}
+
+รองรับพารามิเตอร์ไม่จำกัด
+
+Default Parameters
+
+greeting(greet="Hello", whom="Guest", quote="How are you?")
+
+ตั้งค่า default parameter ได้
+
+Undefined Parameters
+
+sum2(10,20) → num3 = undefined → NaN
+
+Destructuring Parameters
+
+arrayAdd2([x1,y1],[x2,y2])
+
+แยกค่าจาก array/object โดยตรง
+
+Nested Objects
+
+students.fullName.firstName
+
+เข้าถึง object ซ้อนกันได้
+
+Function รับ Object
+
+getFirstName(students) → รับ object ทั้งก้อน
+
+ฟังก์ชันรับ object ได้
+
+String Processing & Word Frequency
+
+ใช้ .toLowerCase(), .split(" "), object map
+
+นับจำนวนคำในประโยคได้
+
+Class พื้นฐาน
+
+class Machine → property (os, disk) + method (getOS, getDiskSize)
+
+เข้าใจ constructor + method
+
+Subclass (Inheritance)
+
+class Computer extends Machine
+
+เพิ่ม property (brand, vms=[])
+
+ใช้ super() เรียก constructor ของพ่อ
+
+Collection (Array) ในคลาส
+
+this.vms → เก็บ VM
+
+getTotalVMDiskSize, getVM(i), getVMNumbers, removeVM(i)
+
+Composition (Object ซ้อนกัน)
+
+class VM extends Machine → VM ต้องมี host เป็น Computer
+
+Computer “ประกอบด้วย” VM
+
+Validation / Error Handling
+
+ถ้า host ไม่ใช่ Computer → throw error
+
+ถ้า disk รวม > host disk → throw error
+
+Encapsulation
+
+เพิ่มเมธอด addVM, removeVM
+
+ไม่แก้ไข vms ตรง ๆ
+
+ห่อหุ้มข้อมูล (encapsulation)
+
+Test Case & Debugging
+
+Test Machine, Computer, VM แยกกัน
+
+ใช้ try–catch ตรวจสอบ error
+
+ฝึก Unit Testing
