@@ -1,0 +1,81 @@
+Factorial (พื้นฐาน loop และ condition)
+
+เริ่มจากให้ n แล้วหาค่า n! ด้วยการวนลูป
+
+ฝึกใช้ if-else ในการตรวจสอบ error เช่น n < 0 หรือไม่ใช่ integer
+
+Output เป็น i และ i!
+
+var n = 6;
+if (n === 0) {
+  console.log("0!", 1);
+} else if (n > 0 && Number.isInteger(n)) {
+  let resultn = 1;
+  for (let i = 1; i <= n; i++) {
+    resultn *= i;
+    console.log(i, resultn);
+  }
+} else {
+  console.log("ERROR");
+}
+
+นับสระ (เพิ่ม logic + switch-case)
+
+ฝึกตรวจสอบ type ของตัวแปร (typeof)
+
+ใช้ switch-case เพื่อเพิ่ม control flow
+
+ค่อย ๆ ขยายจาก loop + condition ไปเป็น loop + switch
+
+var s = "asdqew";
+if (typeof s === "string") {
+  let count = 0;
+  s = s.toUpperCase();
+  for (let i = 0; i < s.length; i++) {
+    let ch = s[i];
+    switch (ch) {
+      case "A":
+      case "E":
+      case "I":
+      case "O":
+      case "U":
+        count++;
+        break;
+    }
+  }
+  console.log(count);
+} else {
+  console.log("ERROR");
+}
+
+เช็ค prime number (เพิ่ม nested loop + condition ที่ซับซ้อนขึ้น)
+
+ฝึกการตรวจสอบตัวเลขเฉพาะ
+
+ใช้ Number.isInteger() + ตรวจว่า n > 1
+
+วน loop ตั้งแต่ 2 → n-1 เช็คการหารลงตัว
+
+var n = 99;
+let isPrime = true;
+if (!Number.isInteger(n) || n <= 1) {
+  console.log("NO");
+} else {
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+  console.log(isPrime ? "YES" : "NO");
+}
+
+Pattern Printing (เริ่มสร้าง output ที่เป็นรูปแบบ)
+
+ฝึกใช้ "*".repeat(i)
+
+เชื่อมโยงการใช้ loop ไปกับการจัดรูปแบบ (formatting) ของ output
+
+for (let i = 0; i <= 5; i++) {
+  console.log("*".repeat(i));
+}

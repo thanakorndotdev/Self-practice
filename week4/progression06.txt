@@ -1,0 +1,63 @@
+พื้นฐานการเข้าถึงและแก้ไขอาเรย์
+
+push / pop / unshift / shift → เรียนรู้การเพิ่ม/ลบ ที่หัวท้ายของอาเรย์
+
+เน้นว่าเป็น mutable (แก้อาเรย์ต้นฉบับ)
+
+let arr = [1,2,3];
+arr.push(4);      // [1,2,3,4]
+arr.pop();        // [1,2,3]
+arr.unshift(0);   // [0,1,2,3]
+arr.shift();      // [1,2,3]
+
+เลือกสมาชิกออกมาหรือแทนที่
+
+splice → ลบ/แทนที่/แทรก (แก้อาเรย์ต้นฉบับ)
+
+slice → คัดลอกช่วง (ไม่แก้ของเดิม)
+
+fill → ใส่ค่าเดียวกันทั้งช่วง (แก้อาเรย์ต้นฉบับ)
+
+let fruits = ["apple","banana","cherry"];
+fruits.splice(1,1,"melon"); // ["apple","melon","cherry"]
+console.log(fruits.slice(0,2)); // ["apple","melon"]
+fruits.fill(null);              // [null,null,null]
+
+การแปลงค่าและคัดกรอง
+
+map → สร้างอาเรย์ใหม่จากการแปลงค่าทีละตัว
+
+filter → เลือกเฉพาะที่ตรงเงื่อนไข
+
+let nums = [1,2,3,4];
+console.log(nums.map(x => x*2));   // [2,4,6,8]
+console.log(nums.filter(x => x%2===0)); // [2,4]
+
+การรวมค่า
+
+reduce → ลดอาเรย์ลงเป็นค่าเดียว (เช่น sum, avg, product)
+
+let prices = [100,200,300];
+let total = prices.reduce((sum,p)=> sum+p, 0);
+console.log(total); // 600
+
+การตรวจสอบและค้นหา
+
+some → อย่างน้อย 1 ตัวผ่านเงื่อนไข
+
+includes → มีค่าตรงๆ ในอาเรย์ไหม (หรือซับสตริงใน string)
+
+let words = ["apple","banana","cherry"];
+console.log(words.some(w => w.length > 5)); // true (banana,cherry)
+console.log(words.includes("apple"));       // true
+
+การจัดเรียงและแปลงรูปแบบ
+
+sort → เรียงค่า (ระวัง mutate ต้นฉบับ)
+
+map + join → เปลี่ยนรูปแบบข้อมูลก่อนพิมพ์
+
+let fruits = ["mango","apple","orange"];
+console.log([...fruits].sort());    // ["apple","mango","orange"]
+console.log(fruits.map(f => f.toUpperCase()).join(", "));
+// "MANGO, APPLE, ORANGE"
