@@ -1,0 +1,41 @@
+1. เริ่มจากการฝึก Array และ Function พื้นฐาน
+
+ไฟล์ 2Sep25.js
+
+มีการสร้าง array ของ student scores และเขียนฟังก์ชัน getPassingNames เพื่อคัดนักเรียนที่คะแนนผ่าน (≥70) แล้วแปลงชื่อเป็นตัวพิมพ์ใหญ่
+
+ทดลองใช้ Array.isArray, sort กับตัวเลข และ sort กับ object array (stds)
+
+จุดนี้เป็นพื้นฐานการ ประมวลผลข้อมูลใน Array และ เขียน function loop + condition
+
+2. การเชื่อมไฟล์ด้วย CommonJS
+
+ไฟล์ commonJSTest.js
+
+ใช้ require("./utility.js") เพื่อดึง echo, MAXStudent, getLength มาใช้
+
+มีการเรียกใช้ function และ constant แล้ว console.log ออกมา
+
+จุดนี้แสดงถึง การทำงานแบบ CommonJS module system ซึ่งใช้บ่อยใน Node.js
+
+3. การเชื่อมไฟล์ด้วย ES Module
+
+ไฟล์ esModuleTest.js
+
+ใช้ import/export
+
+import strLength, { echo as repeat, TAX as VAT } from "./utility.js"
+
+จากนั้น console.log เพื่อทดสอบการทำงาน
+
+จุดนี้เป็น การเปลี่ยนจาก CommonJS → ES Module (มาตรฐานใหม่)
+
+4. Utility Functions (โค้ดกลางที่ถูกแชร์)
+
+ไฟล์ utility.js
+
+มี function echo, getLength และ constant TAX
+
+ใช้ export และ export default
+
+จุดนี้คือ การจัดไฟล์ให้อยู่ในรูปแบบ reusable module
