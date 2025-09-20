@@ -1,0 +1,56 @@
+Progression: การใช้ for...of ใน JavaScript
+Step 1: ใช้กับ Array
+const fruits = ["apple", "banana", "cherry"];
+for (let fruit of fruits) {
+  console.log("fruit:", fruit);
+}
+
+เข้าใจว่า for...of จะวน ค่าของ array ทีละตัว (ไม่ใช่ index)
+
+Step 2: ใช้กับ String
+const word = "HELLO";
+for (let ch of word) {
+  console.log("char:", ch);
+}
+
+
+เรียนรู้ว่า string ก็เป็น iterable สามารถวนทีละตัวอักษรได้
+
+Step 3: ใช้กับ Set
+const numbers = new Set([1, 2, 2, 3]);
+for (let num of numbers) {
+  console.log("set:", num);
+}
+
+เห็นว่า Set เก็บค่าไม่ซ้ำ และ for...of จะวนทีละ element โดยไม่ซ้ำ
+
+Step 4: ใช้กับ Map
+const person = new Map([
+  ["name", "Alice"],
+  ["age", 20],
+  ["city", "Bangkok"]
+]);
+for (let [key, value] of person) {
+  console.log("map:", key, "=", value);
+}
+
+เข้าใจว่า Map ส่งค่าออกมาเป็น [key, value] → ใช้ destructuring มาจับค่าทั้งคู่ได้
+
+Step 5: ใช้กับ arguments
+function showArgs() {
+  for (let arg of arguments) {
+    console.log("arg:", arg);
+  }
+}
+showArgs(10, 20, 30);
+
+
+รู้ว่า arguments object ก็เป็น iterable แม้จะไม่ใช่ array จริง ๆ
+
+Step 6: ใช้กับ entries()
+const colors = ["red", "green", "blue"];
+for (let [index, color] of colors.entries()) {
+  console.log(index, color);
+}
+
+เข้าใจวิธีได้ทั้ง index และ value พร้อมกัน โดยใช้ .entries()

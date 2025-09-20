@@ -1,0 +1,89 @@
+Progression 16- 21 Sep 2025
+
+1. Higher-Order Function & Closure
+
+progression10
+
+16_sep_25
+
+-Higher-Order Function
+
+เรียนรู้การส่งฟังก์ชันเข้าไปในอีกฟังก์ชันหนึ่ง
+
+เข้าใจว่า JavaScript มีฟังก์ชันเป็น first-class citizen ใช้เป็น argument ได้
+
+-Closure (state ภายในฟังก์ชัน)
+
+เห็นว่าตัวแปรใน scope เดิมยังถูกเข้าถึงได้จาก inner function
+
+ใช้ทำ counter, id generator, stateful function
+
+-Function Factory (Partial Application)
+
+ใช้ closure เก็บค่าไว้เพื่อสร้างฟังก์ชันใหม่เฉพาะทาง
+
+เช่น outerFunction(5) → ฟังก์ชันที่บวกเลขทีละ 5
+
+-Scope & Shadowing
+
+เข้าใจการซ้อนของ scope (global vs local)
+
+ตัวแปร local สามารถ บัง (shadow) global ได้
+
+ฟังก์ชันซ้อนเข้าถึง outer scope ได้
+
+-While & Do...While Loop
+
+progression11
+
+19_sep_25
+
+While Loop
+
+-เริ่มจากการนับเลข → เข้าใจว่า while เช็คเงื่อนไขก่อนทำ
+
+-ใช้สะสมค่า → เช่น หาผลรวมของตัวเลข
+
+-ใช้ break เพื่อหยุดลูปเมื่อเจอเงื่อนไข → ควบคุม flow
+
+-ใช้กับ Array → วนตามความยาว array
+
+Do...While Loop
+
+-เริ่มจากการนับเลข → ทำงานก่อนแล้วค่อยเช็คเงื่อนไข
+
+-แม้เงื่อนไข false → ก็ทำงานอย่างน้อย 1 รอบ
+
+-ใช้ validate input → ทำซ้ำจนกว่าจะได้ค่าที่ถูกต้อง
+
+-ใช้กับ Array → ทำงานก่อนแล้ววนจนกว่าจะครบความยาว
+
+For...Of Loop
+
+progression12
+
+21_sep_25
+
+-Array
+
+วนค่าใน array ทีละ element (ไม่ใช่ index)
+
+-String
+
+วนตัวอักษรทีละตัว เพราะ string เป็น iterable
+
+-Set
+
+วนค่าที่ไม่ซ้ำ → เรียนรู้ว่า Set เก็บค่าซ้ำไม่ได้
+
+-Map
+
+วน [key, value] พร้อมใช้ destructuring ได้
+
+-arguments object
+
+แม้ไม่ใช่ array จริง แต่ก็ iterable → วนค่าที่ส่งเข้าฟังก์ชันได้
+
+-entries()
+
+ใช้ .entries() เพื่อวนได้ทั้ง index และ value ของ array

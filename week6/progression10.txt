@@ -1,0 +1,89 @@
+1. Higher-Order Function (ฟังก์ชันที่รับฟังก์ชันเป็นพารามิเตอร์)
+const greet =(name, formatter) => formatter(name)
+const shout = text => text.toLowerCase() + "!!"
+const like = text1 => text1+ " Chop He"
+console.log(greet('alice',like))
+
+
+ฝึกการเขียน ฟังก์ชันลูกศร (arrow function)
+
+ใช้ Higher-Order Function (greet) ที่รับอีกฟังก์ชันมาเป็น argument (formatter)
+
+เห็นการ ส่งต่อฟังก์ชัน เพื่อเปลี่ยนพฤติกรรมการทำงาน (formatter สามารถเป็น shout หรือ like)
+
+ความเข้าใจที่ได้: ฟังก์ชันใน JavaScript เป็น first-class citizen สามารถส่งต่อหรือใช้เป็นพารามิเตอร์ได้
+
+2. Closure สำหรับการสร้าง state ภายในฟังก์ชัน
+function idGenerator(){
+    let count = 0;
+    return function(){
+        ++count;
+        return count
+    }
+}
+const idGen = idGenerator()
+console.log(idGen())
+console.log(idGen())
+console.log(idGen())
+
+
+ฝึกสร้าง closure
+
+ตัวแปร count อยู่ใน scope ของ idGenerator แต่ยังถูกเข้าถึงได้จากฟังก์ชันที่ return ออกมา
+
+ทุกครั้งที่เรียก idGen() ค่า count จะถูกเก็บและเพิ่มขึ้นเรื่อย ๆ
+
+ความเข้าใจที่ได้: Closure ใช้ทำ stateful function ได้ เช่นตัวนับ, random generator, session id
+
+3. Partial Application / Function Factory
+function outerFunction(a){
+    return function(b){
+        return a + b
+    }
+}
+const addFive = outerFunction(5)
+console.log(addFive(3)) // 8
+const addTen = outerFunction(10)
+console.log(addTen(2)) // 12
+
+
+เห็นการสร้าง function factory ที่ return ฟังก์ชันใหม่ โดยเก็บค่า a ไว้ใน closure
+
+outerFunction(5) สร้างฟังก์ชันที่บวกเพิ่มทีละ 5
+
+outerFunction(10) สร้างฟังก์ชันที่บวกเพิ่มทีละ 10
+
+ความเข้าใจที่ได้: สามารถใช้ closure สร้างฟังก์ชันเฉพาะทางได้ เหมือน partial application หรือ currying
+
+4. Scope และ Variable Shadowing
+let y = 100 //global variable
+let sum = 5
+sum = 2
+function getScore(x) {
+  let y = 10 //local variable
+  let mid = 40
+  let final = 30
+  function doSomething() {
+    console.log(`dosomething: ${y + sum + x + mid + final}`)
+  }
+  return mid + final + x + y + sum
+}
+const score = getScore(1)
+console.log(score)
+
+
+ฝึกเข้าใจ scope ระหว่าง global, local, parameter
+
+let y = 100 (global) ถูกบังด้วย let y = 10 (local) ใน getScore
+
+ตัวแปร sum ใช้ค่าจาก global (แก้ไขเป็น 2)
+
+ฟังก์ชัน doSomething แสดงการเข้าถึงตัวแปรจาก outer scope ได้
+
+ความเข้าใจที่ได้:
+
+ตัวแปรมี scope ของตัวเอง
+
+ถ้ามีชื่อซ้ำกัน ตัวแปร local จะบัง global (shadowing)
+
+ฟังก์ชันซ้อนสามารถเข้าถึงตัวแปรจาก scope ข้างนอกได้
