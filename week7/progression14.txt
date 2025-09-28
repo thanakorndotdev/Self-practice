@@ -1,0 +1,26 @@
+สิ่งที่ได้เรียนรู้จาก Progression 27_sep_25.js
+
+1. หลักการของ Progression
+- Arithmetic Progression (AP): a_n = a1 + (n-1)d
+- Geometric Progression (GP): a_n = a1 * r^(n-1)
+- ใช้ for loop มาคำนวณแต่ละพจน์ได้
+
+2. การใช้ for loop สร้างลำดับ
+- ใช้ for (let i = 0; i < n; i++) {...}
+- คำนวณ term ทีละตัว เก็บใน array (terms)
+- บวกผลรวม (sum) ไปพร้อมกันใน loop ได้เลย
+
+3. การเขียนฟังก์ชันที่ยืดหยุ่น
+- ฟังก์ชัน progression(type, a1, step, n)
+- เลือกได้ว่าจะเป็น "AP" หรือ "GP"
+- มีการตรวจสอบ error ถ้า type ไม่ถูกต้อง
+
+4. การใช้ Object เก็บผลลัพธ์
+- return { terms, sum }
+  terms = ลิสต์ของลำดับ
+  sum   = ผลรวมทั้งหมด
+
+สรุป
+ได้ฝึกทั้งคณิตศาสตร์ (AP & GP), โครงสร้าง for loop,
+การออกแบบฟังก์ชัน, การใช้ object และการคิดเชิงคำนวณ 
+ซึ่งทำให้เห็นภาพมากขึ้นจากการใช้ for loop กับ array และ array method
