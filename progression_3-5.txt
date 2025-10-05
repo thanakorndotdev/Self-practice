@@ -1,0 +1,21 @@
+Progression — Week 2 (30 Sep – 5 Oct 2025)
+
+สรุปสิ่งที่พัฒนา
+สัปดาห์นี้เป็นช่วงต่อยอดจาก Week 1 ที่เน้น logic พื้นฐาน → สัปดาห์นี้คือ “เชื่อมทุกอย่างเข้ากับ UI” ผ่านการจัดการ DOM จริง
+- ได้สร้างการสื่อสารระหว่าง logic (quote.js) และ UI (ui.js) แบบครบวงจร – จากการเพิ่ม ข้อมูล → ดึง → แสดงผล
+- ฝึกเขียน render ที่ idempotent (ผลลัพธ์เท่าเดิมทุกครั้งแม้เรียกซ้ำ) โดยใช้แนวคิด clear แล้ว re-draw ใหม่
+- ใช้ ES Modules และเข้าใจการทำงานของ <script type="module"> ใน HTML เชิงลึก
+
+ทักษะใหม่ที่ฝึกได้ 
+- DOM Manipulation ขั้นพื้นฐาน: ใช้ createElement, textContent, appendChild, innerHTML = '' ได้คล่องขึ้น
+- Separation of Concerns: แยกความรับผิดชอบ – quote.js ดูแล state, ui.js ดูแล DOM
+- Idempotent Rendering: ทุกครั้งที่ render จะให้ผลลัพธ์ตรงกับ state ล่าสุด ไม่มีซ้ำ
+- Data Validation: เรียนรู้การกรองข้อมูลด้วย filter(), typeof, Number.isFinite(), เช็ก array ก่อนใช้งาน
+- Security พื้นฐาน: ใช้ textContent แทน innerHTML เพื่อป้องกัน XSS (การฉีด script)
+- Functional Thinking: เข้าใจความต่างระหว่าง pure กับ impure function ในบริบทของ DOM และ state
+
+การเรียนรู้ที่เชื่อมกับ Reflection (5 Oct 2025)
+- จากฟังก์ชัน returnCarYear() ได้เห็นภาพของการตรวจสอบข้อมูล (Data Validation) ชัดเจน
+  → แนวคิดนี้เชื่อมโยงกับ addNewQuote() ได้ เพราะทั้งคู่ต้องกรองข้อมูลก่อนใช้งานจริง
+- ได้เข้าใจการใช้ filter() และ typeof เชิงลึก รวมถึงการเช็กประเภทข้อมูล ก่อน logic หลัก
+- สรุปคือ ทั้งสองบทเรียน (DOM และ Data Filtering) สอนให้รู้จัก “ควบคุมข้อมูลก่อนแสดงผล” เพื่อลด bug และ เพิ่ม ความปลอดภัย
